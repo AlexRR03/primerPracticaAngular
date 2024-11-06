@@ -1,0 +1,36 @@
+<div>
+    <h1>Forms Binding funciona</h1>
+    <h2>{{ mensaje }}</h2>
+    <!-- EL FORMULARIO DEBE TENER UN ID DE ANGULAR IGUAALADO A NGFORM -->
+     <form #usuarioForm="ngForm" (ngSubmit)="recibirDatos()" >
+            <label>Nombre:</label>
+            <input type="text" name="#cajanombre"
+            #cajanombre="ngModel"
+            [(ngModel)]="usuario.nombre"
+            />
+            <br>
+            <label>Apellido:</label>
+            <input type="text" name="#cajaapellido"
+            #cajanombre="ngModel"
+            [(ngModel)]="usuario.apellido"
+            />
+            <span *ngIf="cajanombre.valid == false && cajanombre.touched">
+                El nombre es obligatorio
+            </span>
+            <br>
+            <label>Edad:</label>
+            <input type="number" name="#cajaedad"
+            #cajanombre="ngModel"
+            [(ngModel)]="usuario.edad"
+            />
+            <br>
+            <button [disabled]="!usuarioForm.valid">
+                Enviar Datos
+            </button>
+     </form>
+     <h2 style="color: blue;">
+            Nombre: {{usuario.nombre}};
+            Apellido: {{usuario.apellido}};
+            Edad: {{usuario.edad}}
+     </h2>
+</div>

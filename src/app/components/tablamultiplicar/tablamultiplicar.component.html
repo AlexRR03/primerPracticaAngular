@@ -1,0 +1,30 @@
+<div>
+    <h1>Tabla Multiplicar</h1>
+    <form #tablaMultiplicarForm="ngForm">
+        <label>Introduce un numero:</label>
+        <input type="number"
+        name="cajanumero"
+        #cajanumero
+        />
+        <br>
+        <button (click)="multiplicar()">
+            Mostrar
+        </button>
+    </form>
+    <div *ngIf="tabla.length>0">
+        <table border="2px">
+            <thead>
+                <tr>
+                    <th>Operacion</th>
+                    <th>Resultado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let res of tabla; let i=index">
+                    <td>{{i+1}}*{{cajanumero.value}}</td>
+                    <td>{{res}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
